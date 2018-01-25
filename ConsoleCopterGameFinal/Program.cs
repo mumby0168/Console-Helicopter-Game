@@ -10,60 +10,69 @@ using ConsoleCopterGameFinal.Classes;
 
 namespace ConsoleCopterGameFinal
 {
-    class Program : Globals
+    class Program : Globals // this inherits the properties from globals class
     {
-        static Copter copter = new Copter();
-        static Thread _updateCopter;
-        private static List<Obstacles> _obstacles = new List<Obstacles>();
-        private static Random Rand = new Random(DateTime.Today.Millisecond);
+        //object declarations
+        private static Random Rand = new Random(DateTime.Today.Millisecond); // delcares a random object with a seed of todays millsecond
+        static Copter copter = new Copter(); // creates a static instance of the copter class
+        private static List<Obstacles> _obstacles = new List<Obstacles>(); // creates a private static 
+
+        //thread declarations
+        static Thread _updateCopter; // declaring a variable for the update copter loop
+        
+        
 
         static void Main(string[] args)
         {
-            DrawObstacles(15);
-            GameRunning = true;
-            _updateCopter = new Thread(copter.Update);
-            _updateCopter.Start();
-            if (copter.CheckCollison(_obstacles, copter))
+            DrawObstacles(15); // this calls the draw obstacles method
+            GameRunning = true; // stes the game running boolean to true
+            _updateCopter = new Thread(copter.Update); //instanciates and calls update method on the copter
+            _updateCopter.Start(); // starts the copter update loop
+
+            if (copter.CheckCollison(_obstacles, copter)) //if the copter check collision returns true then do in the block
             {
                 MessageBox.Show("GAME OVER");
                 GameRunning = false;
             }
         }
 
-        static void DrawObstacles(int a)
+        //delcares a static method with no return a integer as a paramater
+        static void DrawObstacles(int a) 
         {
-            for (int i = 0; i < a; i++)
+            for (int i = 0; i < a; i++) //this loop until the pass variable a is met
             {
-                if (i < a / 2)
+                if (i < a / 2) // if i is less than half of a do below
                 {
-                    _obstacles.Add(new Obstacles(NumberGenerator(12, 8), true));
+                    _obstacles.Add(new Obstacles(NumberGenerator(14, 10), true)); // adds a obstacle to the list and generates the y point randomly
                 }
-                else
+                else // if not true do this
                 {
-                    _obstacles.Add(new Obstacles(NumberGenerator(20, 18), false));
+                    _obstacles.Add(new Obstacles(NumberGenerator(22, 18), false)); // adds a obstacle to the list and generates the y point randomly
                 }
             }
 
+            //delcares to integers to be used as counts
             int topCount = 15;
             int bottomCount = 0;
-            foreach (var t in _obstacles)
+
+            foreach (var t in _obstacles) //loops for every item in the obstacles list
             {
-                if (t.isTop)
+                if (t.isTop) // if istop is true
                 {
-                    t.Draw(topCount);
-                    topCount += 15;
+                    t.Draw(topCount); // draws the obstacles and passes the top count
+                    topCount += 15; // adds 15 to the variable
                 }
                 else
                 {
-                    t.Draw(bottomCount);
-                    bottomCount += 15;
+                    t.Draw(bottomCount); // draws the obstacles and passes the top count
+                    bottomCount += 15; // adds 15 to the variable
                 }
             }
         }
 
-        static int NumberGenerator(int max, int min)
+        static int NumberGenerator(int max, int min) //delcares a static method which will return a int given two ints
         {
-            return Rand.Next(min, max);
+            return Rand.Next(min, max); //returns random number between the given inputs
         }
     }
 }
