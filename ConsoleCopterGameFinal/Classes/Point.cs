@@ -10,7 +10,6 @@ namespace ConsoleCopterGameFinal.Classes
     {
         public Point()
         {
-
         }
 
         public Point(int x, int y)
@@ -20,14 +19,13 @@ namespace ConsoleCopterGameFinal.Classes
         }
 
         // these are the value that will be set through the get and set methods to store the x and y coordinates of the obstacles and the copter
-        protected int X { get; set; } 
+        protected int X { get; set; }
         protected int Y { get; set; }
 
         //this will set the protected property and also allow me to access it
         public int x
         {
             get => X;
-
             set
             {
                 if (value == 3)
@@ -43,7 +41,6 @@ namespace ConsoleCopterGameFinal.Classes
         public int y
         {
             get => Y;
-
             set
             {
                 //this will check to see if the value that it is attempting to set is off the edge of the console
@@ -55,9 +52,7 @@ namespace ConsoleCopterGameFinal.Classes
                 {
                     Y = value;
                 }
-
             }
         }
-
     }
 }

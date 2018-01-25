@@ -12,38 +12,58 @@ namespace ConsoleCopterGameFinal
 {
     class Program : Globals
     {
-        static Thread updateCopter;
-        private static List<Obstacles> obstacles = new List<Obstacles>();
+        static Copter copter = new Copter();
+        static Thread _updateCopter;
+        private static List<Obstacles> _obstacles = new List<Obstacles>();
+        private static Random Rand = new Random(DateTime.Today.Millisecond);
+
         static void Main(string[] args)
         {
-            Globals Game = new Globals();
-            Copter copter = new Copter();
-            
-
-            CreateObsts(10);
-
+            DrawObstacles(16);
             GameRunning = true;
-
-            updateCopter = new Thread(copter.Update);
-
-            updateCopter.Start();
-
-            if (copter.CheckCollison(obstacles, copter))
+            _updateCopter = new Thread(copter.Update);
+            _updateCopter.Start();
+            if (copter.CheckCollison(_obstacles, copter))
             {
                 MessageBox.Show("GAME OVER");
                 GameRunning = false;
             }
         }
 
-
-        static void CreateObsts(int a)
+        static void DrawObstacles(int a)
         {
-            
-                obstacles.Add(new Obstacles(15, 12, true));
-            obstacles[0].Draw();
-            obstacles.Add(new Obstacles(15, 16, false));
-            obstacles[1].Draw();
+            for (int i = 0; i < a; i++)
+            {
+                if (i < a / 2)
+                {
+                    _obstacles.Add(new Obstacles(NumberGenerator(12, 8), true));
+                }
+                else
+                {
+                    _obstacles.Add(new Obstacles(NumberGenerator(20, 18), false));
+                }
+            }
 
+            int topCount = 0;
+            int bottomCount = 0;
+            foreach (var t in _obstacles)
+            {
+                if (t.isTop)
+                {
+                    t.Draw(topCount);
+                    topCount += 15;
+                }
+                else
+                {
+                    t.Draw(bottomCount);
+                    bottomCount += 15;
+                }
+            }
+        }
+
+        static int NumberGenerator(int max, int min)
+        {
+            return Rand.Next(min, max);
         }
     }
 }
