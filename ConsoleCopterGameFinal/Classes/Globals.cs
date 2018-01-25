@@ -9,7 +9,7 @@ namespace ConsoleCopterGameFinal.Classes
     public class Globals
     {
         public static bool GameRunning { get; set; }
-        public static int GameScore { get; set; }
+        public static int GameScore = 0;
 
     }
 }

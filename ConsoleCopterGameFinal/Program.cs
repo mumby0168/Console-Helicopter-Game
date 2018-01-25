@@ -19,7 +19,7 @@ namespace ConsoleCopterGameFinal
 
         static void Main(string[] args)
         {
-            DrawObstacles(16);
+            DrawObstacles(15);
             GameRunning = true;
             _updateCopter = new Thread(copter.Update);
             _updateCopter.Start();
@@ -44,7 +44,7 @@ namespace ConsoleCopterGameFinal
                 }
             }
 
-            int topCount = 0;
+            int topCount = 15;
             int bottomCount = 0;
             foreach (var t in _obstacles)
             {

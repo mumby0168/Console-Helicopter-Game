@@ -20,6 +20,8 @@ namespace ConsoleCopterGameFinal.Classes
         private static Direction _dir = new Direction();
         private static Thread checkInput;
         private static List<string> copterString = new List<string>() {@"---..---", @"C0000--/"};
+        private static ScoreBoard scoreBoard = new ScoreBoard();
+        private static Thread scoreUpdate;
         
         public Copter()
         {
@@ -29,6 +31,8 @@ namespace ConsoleCopterGameFinal.Classes
 
             Dimensions.Width = copterString[0].Length;
             Dimensions.Height = copterString.Count;
+            scoreUpdate = new Thread(scoreBoard.Update);
+            scoreUpdate.Start();
         }
 
         public void Update()
@@ -134,7 +138,7 @@ namespace ConsoleCopterGameFinal.Classes
                     case ConsoleKey.UpArrow:
                         _dir = Direction.Up;
                         Clear();
-                        GameScore++;
+                        GameScore += 1;
                         break;
                     case ConsoleKey.DownArrow:
                         _dir = Direction.Down;
