@@ -28,7 +28,7 @@ namespace ConsoleCopterGameFinal.Classes
             get => X;
             set
             {
-                if (value == 3)
+                if (X < 10)
                 {
                     X = Console.WindowWidth - 3;
                 }
@@ -41,18 +41,7 @@ namespace ConsoleCopterGameFinal.Classes
         public int y
         {
             get => Y;
-            set
-            {
-                //this will check to see if the value that it is attempting to set is off the edge of the console
-                if (value <= 0)
-                {
-                    Y = Console.WindowWidth - 1;
-                }
-                else
-                {
-                    Y = value;
-                }
-            }
+            set => Y = value;
         }
     }
 }
