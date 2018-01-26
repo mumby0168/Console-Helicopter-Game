@@ -45,6 +45,9 @@
   <ItemGroup>
     <Compile Include="Classes\Copter.cs" />
     <Compile Include="Classes\Dimensions.cs" />
+    <Compile Include="Classes\HighScore.cs" />
+    <Compile Include="Classes\MenuSystem.cs" />
+    <Compile Include="Classes\ScoreSheet.cs" />
     <Compile Include="Classes\Globals.cs" />
     <Compile Include="Classes\Obstacles.cs" />
     <Compile Include="Classes\Point.cs" />

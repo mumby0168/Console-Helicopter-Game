@@ -31,12 +31,13 @@ namespace ConsoleCopterGameFinal.Classes
 
             Dimensions.Width = copterString[0].Length;
             Dimensions.Height = copterString.Count;
-            scoreUpdate = new Thread(scoreBoard.Update);
-            scoreUpdate.Start();
+            
         }
 
         public void Update()
         {
+            scoreUpdate = new Thread(scoreBoard.Update);
+            scoreUpdate.Start();
             checkInput = new Thread(CheckInput);
             checkInput.Start();
             while (GameRunning)
@@ -139,6 +140,7 @@ namespace ConsoleCopterGameFinal.Classes
                         _dir = Direction.Up;
                         Clear();
                         GameScore += 1;
+                        Console.Beep();
                         break;
                     case ConsoleKey.DownArrow:
                         _dir = Direction.Down;
