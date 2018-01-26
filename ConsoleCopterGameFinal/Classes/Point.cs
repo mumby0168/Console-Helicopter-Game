@@ -26,15 +26,8 @@ namespace ConsoleCopterGameFinal.Classes
         public int x
         {
             get => X;
-            set
-            {
-                if (X < 10)
-                {
-                    X = Console.WindowWidth - 3;
-                }
-
-                X = value;
-            }
+            set => X = value;
+            
         }
 
         //this will set the protected property and also allow me to access it

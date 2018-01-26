@@ -51,6 +51,8 @@ namespace ConsoleCopterGameFinal.Classes
                 _point.x += Directions[i].x;
                 _point.y += Directions[i].y;
                 _dir = Direction.Down;
+                if (_point.x < 3)
+                    _point.x = Console.WindowWidth - 1;
                 Draw();
                 Thread.Sleep(200);
             }
@@ -136,24 +138,12 @@ namespace ConsoleCopterGameFinal.Classes
                 var keyInput = Console.ReadKey(true).Key;
                 switch (keyInput)
                 {
-                    case ConsoleKey.UpArrow:
+                    case ConsoleKey.Spacebar:
                         _dir = Direction.Up;
                         Clear();
                         GameScore += 1;
                         Console.Beep();
-                        break;
-                    case ConsoleKey.DownArrow:
-                        _dir = Direction.Down;
-                        Clear();
-                        break;
-                    case ConsoleKey.LeftArrow:
-                        Clear();
-                        _dir = Direction.Left;
-                        break;
-                    case ConsoleKey.RightArrow:
-                        Clear();
-                        _dir = Direction.Right;
-                        break;
+                        break;                 
                 }
             }
         }
