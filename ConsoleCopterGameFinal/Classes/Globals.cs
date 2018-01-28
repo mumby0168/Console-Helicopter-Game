@@ -12,7 +12,7 @@ namespace ConsoleCopterGameFinal.Classes
         public static bool GameRunning { get; set; } // this will allow us to check if the game is running as well as setting its value
         public static int GameScore { get; set; } // this will allow us to set the gamescore and also retrieve it
 
-        public static string Name { get; set; }
+        public static string Name { get; set; } // this will allow us to set a name and also reteive it
 
     }
 }
