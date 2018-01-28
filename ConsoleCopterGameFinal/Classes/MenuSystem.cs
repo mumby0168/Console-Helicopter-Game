@@ -76,6 +76,7 @@ namespace ConsoleCopterGameFinal.Classes
 
             Console.WriteLine("Press enter to play Game"); // this prints the text to the console
             Console.ReadLine();// this waits for the user to continue
+            Console.Clear();
         }
 
         static void DisplayInstructions() // this wil display the instructions
