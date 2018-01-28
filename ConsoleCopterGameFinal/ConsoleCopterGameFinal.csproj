@@ -48,7 +48,7 @@
     <Compile Include="Classes\MenuSystem.cs" />
     <Compile Include="Classes\ScoreSheet.cs" />
     <Compile Include="Classes\Globals.cs" />
-    <Compile Include="Classes\Obstacles.cs" />
+    <Compile Include="Classes\Obstacle.cs" />
     <Compile Include="Classes\Point.cs" />
     <Compile Include="Classes\ScoreBoard.cs" />
     <Compile Include="Program.cs" />

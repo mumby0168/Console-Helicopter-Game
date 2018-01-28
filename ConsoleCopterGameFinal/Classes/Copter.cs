@@ -58,14 +58,14 @@ namespace ConsoleCopterGameFinal.Classes
             }
         }
 
-        public bool CheckCollison(List<Obstacles> obsts, Copter cop)
+        public bool CheckCollison(List<Obstacle> obsts, Copter cop)
         {
             Dimensions dim = new Dimensions();
             while (GameRunning)
             {
                 foreach (var obs in obsts)
                 {
-                    int xMaxobs = obs._point.x + (obs.dimensions.Width);
+                    int xMaxobs = obs._point.x + (obs.Dimensions.Width);
                     int xMinObs = obs._point.x;
                     int i = 0;
                     for (i = xMinObs; i < xMaxobs; i++)
@@ -78,8 +78,8 @@ namespace ConsoleCopterGameFinal.Classes
                             if (i == j)
                             {
                                 int yMaxObs = obs._point.y;
-                                int yMinObs = obs._point.y - obs.dimensions.Height;
-                                if (!obs.isTop)
+                                int yMinObs = obs._point.y - obs.Dimensions.Height;
+                                if (!obs.IsTop)
                                 {
                                     yMinObs = obs._point.y;
                                     yMaxObs = 30;

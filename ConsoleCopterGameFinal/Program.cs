@@ -19,7 +19,7 @@ namespace ConsoleCopterGameFinal
 
         private static ScoreSheet scoreTable = new ScoreSheet(); // this creates a static instance of the scoresheet class
         private static Copter copter = new Copter(); // creates a static instance of the copter class
-        private static List<Obstacles> _obstacles = new List<Obstacles>(); // creates a private static 
+        private static List<Obstacle> _obstacles = new List<Obstacle>(); // creates a private static 
         private static MenuSystem Menu = new MenuSystem(); // this creats a static instance of the menuSystem class
         private static ScoreSheet FileLog = new ScoreSheet(); // this creates a static instance of the scoresheet class
 
@@ -60,12 +60,12 @@ namespace ConsoleCopterGameFinal
             {
                 if (i < a / 2) // if i is less than half of a do below
                 {
-                    _obstacles.Add(new Obstacles(NumberGenerator(14, 10),
+                    _obstacles.Add(new Obstacle(NumberGenerator(14, 10),
                         true)); // adds a obstacle to the list and generates the y point randomly
                 }
                 else // if not true do this
                 {
-                    _obstacles.Add(new Obstacles(NumberGenerator(22, 18),
+                    _obstacles.Add(new Obstacle(NumberGenerator(22, 18),
                         false)); // adds a obstacle to the list and generates the y point randomly
                 }
             }
@@ -76,7 +76,7 @@ namespace ConsoleCopterGameFinal
 
             foreach (var t in _obstacles) //loops for every item in the obstacles list
             {
-                if (t.isTop) // if istop is true
+                if (t.IsTop) // if istop is true
                 {
                     t.Draw(topCount); // draws the obstacles and passes the top count
                     topCount += 15; // adds 15 to the variable
