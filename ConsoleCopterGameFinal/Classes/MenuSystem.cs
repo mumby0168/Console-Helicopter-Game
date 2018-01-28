@@ -25,9 +25,13 @@ namespace ConsoleCopterGameFinal.Classes
 
             Console.Clear();
             int input = 0;
+
+            Console.SetCursorPosition(Console.WindowWidth - 70, 3);
+            Console.WriteLine("MENU");
+
             do
             {
-                Console.WriteLine("Please choose an option \n 1: play game \n 2: highscores \n 3: exit");
+                Console.WriteLine("\n\t\t\t\t\tPlease choose an option \n\t\t\t\t\t 1: Play Game \n\t\t\t\t\t 2: Highscores \n\t\t\t\t\t 3: Instructions \n\t\t\t\t\t 4: Exit");
                 input = int.Parse(Console.ReadLine());
             } while (input != 1 && input != 2 && input != 3);
 
@@ -42,6 +46,9 @@ namespace ConsoleCopterGameFinal.Classes
                     DisplayHighScores();
                     break;
                 case 3:
+                    DisplayInstructions();
+                    break;
+                case 4:
                     Environment.Exit(1);
                     break;
             }
@@ -57,7 +64,20 @@ namespace ConsoleCopterGameFinal.Classes
 
 
             Console.WriteLine("Press enter to play Game");
-            string input = Console.ReadLine();
+            Console.ReadLine();
+        }
+
+        static void DisplayInstructions()
+        {
+            Console.SetCursorPosition(Console.WindowWidth - 70, 3);
+            Console.WriteLine("INSTRUCTIONS");
+
+
+            Console.WriteLine(
+                "\n\tThe aim of this game is to last as long as possible moving from one end of the screen to the other\n\twithout hitting any of the obsticles that are in the way.\n\tControls: Space bar to go up.\n\tYou will collect a point every time that you hit the space bar.");
+
+            Console.WriteLine("\tPress Enter to Play");
+            Console.ReadLine();
         }
     }
 }

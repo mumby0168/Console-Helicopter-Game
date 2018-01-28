@@ -140,9 +140,7 @@ namespace ConsoleCopterGameFinal.Classes
                 {
                     case ConsoleKey.Spacebar:
                         _dir = Direction.Up;
-                        Clear();
                         GameScore += 1;
-                        Console.Beep();
                         break;                 
                 }
             }
